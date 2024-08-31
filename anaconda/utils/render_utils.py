@@ -55,6 +55,16 @@ def render_markdown(template_name: str, **context: Any) -> Markup:
 
 
 def render_page(template_name: str, **context: Any) -> str:
+    """
+    Renders a template to a page with content and navigation.
+
+    Arguments:
+        template_name (str): The name of the template to render.
+        context: The variables to make available in the template.
+
+    Returns:
+        str: The rendered page.
+    """
     fragment = parse_markdown(template_name, **context)
     navigation = flask.render_template(
         'page/navigation.html',
